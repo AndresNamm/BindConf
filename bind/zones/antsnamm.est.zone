@@ -1,0 +1,14 @@
+;
+; BIND data file for local zone teacher.est;
+$TTL    15M
+@       IN      SOA     ns1.antsnamm.est. root.antsnamm.est. (
+                     2018020201         ; Serial
+                            15M         ; Refresh
+                             5M         ; Retry
+                           120M         ; Expire
+                            600 )       ; Negative Cache TTL
+@           IN      NS      ns1
+@           IN      A       172.17.64.127
+ns1         IN      A       172.17.64.127
+nammvm      IN      A       172.17.64.127
+

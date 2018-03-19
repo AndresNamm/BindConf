@@ -1,0 +1,18 @@
+;
+; BIND data for example.com
+;
+$TTL 3h
+@       IN      SOA     ns1.antsnamm.est. root.antsnamm.est. (
+                        1       ; SERIAL
+                        3h      ; Refresh
+                        1h      ; Retry
+                        1w      ; Expire
+                        1h )    ; Minimum
+
+@      IN NS ns1.antsnamm.est.
+@      IN A 172.17.64.127
+ns1    IN A 172.17.64.127
+nammvm IN A 172.17.64.127
+
+
+

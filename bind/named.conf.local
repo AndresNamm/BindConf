@@ -1,0 +1,43 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+
+view local_resolver {
+	allow-query { goodclients; };
+	recursion yes;
+	match-clients { goodclients; };
+	match-destinations { goodclients; };
+        include "/etc/bind/named.conf.default-zones";
+	zone "antsnamm.est" {
+	      type master;
+	      file "/etc/bind/zones/antsnamm.est.zone";
+	};
+        zone "64.17.172.in-addr.arpa" {
+             file "/etc/bind/zones/64.17.172.in-addr.arpa.zone";
+             type master;
+             allow-update { none; };
+        }; 
+        zone "est" {
+                type forward;
+                forward only;
+                forwarders { 172.17.64.203; };
+        };
+};
+view world_resolver {
+	allow-query { any; };
+	recursion no;
+        match-clients { any; };
+        match-destinations { any; };	
+        zone "antsnamm.est" {
+                type master;
+                file "/etc/bind/zones/antsnamm.est.zone";
+        };
+};
+
+
+
